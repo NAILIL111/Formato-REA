@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reporte de Evento Analítico - ALS</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 4px solid #00a6de;
+    }
+    header img {
+      height: 60px;
+      vertical-align: middle;
+      margin-right: 1rem;
+    }
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 1.5rem;
+    }
+    h2 {
+      color: #003366;
+      margin-top: 2rem;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      color: #333;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.3rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-shadow: 1px 1px 3px rgba(0,0,0,0.05);
+      box-sizing: border-box;
+    }
+    textarea {
+      resize: vertical;
+    }
+    .button {
+      background-color: #0077b6;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.2rem;
+      margin-top: 2rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #005f8a;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 1rem;
+      }
+      .header-content {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbW..." alt="Logo ALS" height="60">
+      <div>
+        <h1>Laboratorio ALS</h1>
+        <p>Registro de Reporte de Evento Analítico</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <form id="eventoForm">
+
+      <h2>1. Detalle del Producto</h2>
+      <label>Nombre del Producto o Material</label>
+      <input type="text" name="producto" required>
+
+      <label>Nombre del Cliente</label>
+      <input type="text" name="cliente">
+
+      <label>Folio(s)</label>
+      <input type="text" name="folios">
+
+      <label>Área</label>
+      <input type="text" name="area">
+
+      <label>Prueba(s)</label>
+      <input type="text" name="pruebas">
+
+      <label>Fecha del Evento</label>
+      <input type="date" name="fecha">
+
+      <h2>2. Descripción del Evento</h2>
+      <label>¿Qué ocurrió? (Descripción breve del problema)</label>
+      <textarea name="descripcion" rows="4"></textarea>
+
+      <label>¿Cuándo ocurrió?</label>
+      <input type="text" name="cuando">
+
+      <label>¿Dónde ocurrió?</label>
+      <input type="text" name="donde">
+
+      <label>¿Por qué ocurrió? (Causa del evento)</label>
+      <textarea name="causa" rows="3"></textarea>
+
+      <label>Clasificación del tipo de evento (seleccione una o más)</label>
+      <select name="clasificacion[]" multiple size="6">
+        <option>Posición incorrecta de capilar o celda o vial</option>
+        <option>Adición de soluciones incorrectas</option>
+        <option>Adición incorrecta de reactivo</option>
+        <option>Alícuota y/o aforo incorrecto</option>
+        <option>Arrastre de la muestra (Carry over)</option>
+        <option>Desconexión Instrumento-Software</option>
+        <option>Error en la plantilla en la BV durante o después de la corrida</option>
+        <option>Falla Eléctrica</option>
+        <option>Falla en el software</option>
+        <option>Falla por saturación de memoria</option>
+        <option>Fallo de piezas del equipo</option>
+        <option>Falta de acondicionamiento adecuado</option>
+        <option>Falta de eficiencia de la columna</option>
+        <option>Falta de revisión inicial del instrumento para la operación</option>
+        <option>Incorrecta introducción de capilar o celda o vial</option>
+        <option>Ingreso de datos incorrectos</option>
+        <option>Muestra/estándar insuficiente</option>
+        <option>Obstrucción del sistema</option>
+        <option>Pérdida accidental de muestra o soluciones de trabajo</option>
+        <option>Pesada incorrecta</option>
+        <option>Picos o perfil atípicos, movimiento en tiempos de retención</option>
+        <option>Pierde estabilidad el sistema</option>
+        <option>Presencia de aire en sistema (burbuja)</option>
+        <option>Programación de secuencia incorrecta</option>
+        <option>Respuesta atípica por contaminación</option>
+        <option>Selección incorrecta de método</option>
+        <option>Tiempo y/o forma de extracción incorrecta</option>
+        <option>Uso de equipo/instrumento/material incorrecto</option>
+        <option>Uso de estándar y/o reactivo incorrecto</option>
+      </select>
+
+      <h2>3. Acciones Inmediatas</h2>
+      <label>Describa las acciones realizadas</label>
+      <textarea name="acciones" rows="4"></textarea>
+
+      <h2>4. Datos del Equipo o Instrumento</h2>
+      <label>Nombre del equipo/instrumento</label>
+      <input type="text" name="equipo">
+
+      <label>¿Fue causado por falla de equipo?</label>
+      <select name="fallaEquipo">
+        <option value="No">No</option>
+        <option value="Sí">Sí</option>
+      </select>
+
+      <label>Clave de Reporte</label>
+      <input type="text" name="bitacora">
+
+            
+  <h2>Firmas</h2>
+      <label>Nombre del Analista</label>
+      <input type="text" name="firma_analista">
+      <label>Firma del Analista</label>
+      <canvas id="firmaAnalista" width="300" height="100" style="border:1px solid #ccc; border-radius:8px;"></canvas>
+      <button type="button" onclick="limpiarFirma('firmaAnalista')">Limpiar</button>
+
+      <label>Nombre del Jefe de Área</label>
+      <input type="text" name="firma_jefe">
+      <label>Firma del Jefe de Área</label>
+      <canvas id="firmaJefe" width="300" height="100" style="border:1px solid #ccc; border-radius:8px;"></canvas>
+      <button type="button" onclick="limpiarFirma('firmaJefe')">Limpiar</button>
+
+      <label>Nombre del Gerente</label>
+      <input type="text" name="firma_gerente">
+      <label>Firma del Gerente</label>
+      <canvas id="firmaGerente" width="300" height="100" style="border:1px solid #ccc; border-radius:8px;"></canvas>
+      <button type="button" onclick="limpiarFirma('firmaGerente')">Limpiar</button>
+
+  <button type="submit" class="button">Guardar Evento</button>
+</form>
+  </div>
+
+  <script>
+    document.getElementById('eventoForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert('✅ Evento registrado correctamente.\nPuedes implementar persistencia en LocalStorage o enviar a servidor según lo requieras.');
+      this.reset();
+    });
+  </script>
+<script>
+  function iniciarPadFirma(idCanvas) {
+    const canvas = document.getElementById(idCanvas);
+    const ctx = canvas.getContext('2d');
+    let pintando = false;
+
+    canvas.addEventListener('mousedown', () => pintando = true);
+    canvas.addEventListener('mouseup', () => {
+      pintando = false;
+      ctx.beginPath();
+    });
+    canvas.addEventListener('mouseleave', () => {
+      pintando = false;
+      ctx.beginPath();
+    });
+
+    canvas.addEventListener('mousemove', (e) => {
+      if (!pintando) return;
+      const rect = canvas.getBoundingClientRect();
+      ctx.lineWidth = 2;
+      ctx.lineCap = 'round';
+      ctx.strokeStyle = '#000';
+      ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+    });
+  }
+
+  function limpiarFirma(idCanvas) {
+    const canvas = document.getElementById(idCanvas);
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+
+  window.onload = () => {
+    iniciarPadFirma('firmaAnalista');
+    iniciarPadFirma('firmaJefe');
+    iniciarPadFirma('firmaGerente');
+  };
+</script>
+</body>
+</html>
